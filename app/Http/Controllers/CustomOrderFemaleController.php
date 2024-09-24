@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UploadOrderFemaleController extends Controller
+class CustomOrderFemaleController extends Controller
 {
     public function index()
     {
-        return view('customerui.uploadorderfemale');
+        return view('customerui.CustomOrderFemale');
     }
 }

@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             // Debug output
-            // console.log('Message sent:', data); 
+            console.log('Message sent:', data); 
             messageInput.value = ''; // Clear the input after sending
         })
         .catch(error => {

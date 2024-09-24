@@ -10,16 +10,24 @@
 
 </head>
 <body class="bg-mainbackground bg-cover">
+    <!--Go Back button-->
+        <div class="GoBackColumn">
+            <div class="GoBackContainer flex items-center">
+                <a href="{{ route('home')}}">
+                    <img class="GoBackButtonSvg mx-auto h-10 w-10 ml-4 " src="../img/gobackbutton.svg">
+                </a>
+            </div>
+        </div>
 
     <!--Choices-->
-        <div class="ChoiceContainer mx-auto p-4 flex justify-center scale-95" style="gap: 70px; height: calc(100vh - 48px)">
-        <!-- Go Back Option -->
-            <div class="GoBackColumn w-1/2 bg-white p-2 relative group">
-                <a href="{{ route('home')}}">
+        <div class="ChoiceContainer mx-auto p-4 flex justify-center scale-95" style="gap: 70px; height: calc(90vh - 48px)">
+
+        <!-- Customize Order Option -->
+            <div class="CustomOrderColumn w-1/2 bg-white p-2 relative group">
+                <a href="{{ route('CustomOrder')}}">
                     <img class="GoBackPng h-full w-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-150 ease-in-out group-hover:border-8 group-hover:border-white" src="../img/goback.png">                    
                     <div class="GoBackContainer absolute inset-0 0 flex flex-col justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out">
-                        <img class="GoBackButtonSvg mx-auto h-128 w-128 grayscale-0 hover:grayscale-0 transition duration-150 ease-in-out" src="../img/gobackbutton.svg">
-                        <span class="GoBackTxt text-center text-white" style="-webkit-text-stroke: 2px black; font-size: 104px;">Go Back</span>
+                        <span class="CustomizeTxt text-center text-white" style="-webkit-text-stroke: 2px black; font-size: 104px;">Customize</span>
                     </div>
                 </a>
             </div>

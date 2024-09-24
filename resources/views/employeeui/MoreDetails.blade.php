@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../output.css" rel="stylesheet">
-    <title> Order Details </title>
+    <title> More Details </title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    @include('layouts.customerheader')
+    @include('layouts.empheader')
 </head>
 
 <body class="bg-mainbackground bg-cover">
@@ -16,14 +16,14 @@
 
         <div class="GoBackColumn">
             <div class="GoBackContainer flex items-center">
-                <a href="{{ route('ViewOrder')}}">
+                <a href="{{ route('employeeui.ManageOrder')}}">
                     <img class="GoBackButtonSvg mx-auto h-10 w-10 ml-4 " src="../img/gobackbutton.svg">
                 </a>
             </div>
         </div> 
 
         <div class="text-4xl mt-8 text-center text-white ">
-            <h1> Order Details</h1>
+            <h1> More Details</h1>
         </div>
 
         <!-- ang table nga ih connect sa orderDetails is ang product table lang -->

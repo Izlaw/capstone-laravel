@@ -10,6 +10,13 @@
 </head>
 <body>
     <h1 class="AssistCustomertxt text-center text-2xl">Assist Customer Page</h1>
+
+    <div class="GoBackColumn mb-8">
+            <div class="GoBackContainer flex items-left" onclick="window.location.href='{{ route('employee.dashboard') }}'">
+                    <img class="GoBackButtonSvg mx-auto h-10 w-10 ml-4 " src="../img/gobackbutton.svg">
+                </a>
+            </div>
+    </div>
     
     <!-- Display conversations -->
     <div class="container mx-auto p-4">

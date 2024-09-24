@@ -13,15 +13,19 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AddOrderController;
 use App\Http\Controllers\UploadOrderController;
-use App\Http\Controllers\UploadOrderMaleController;
+use App\Http\Controllers\CustomOrderMaleController;
 use App\Http\Controllers\CustomerSupportController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UploadOrderFemaleController;
+use App\Http\Controllers\CustomOrderFemaleController;
 use App\Http\Controllers\ViewOrderController;
+use App\Http\Controllers\orderDetailsController;
+use App\Http\Controllers\CustomOrderController;
 
 // employee controllers
 use App\Http\Controllers\ManageOrderController;
 use App\Http\Controllers\AssistCustomerController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\MoreDetailsController;
 
 // admin controllers
 
@@ -54,8 +58,9 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/addorder', [AddOrderController::class, 'index'])->name('addorder');
 Route::get('/uploadorder', [UploadOrderController::class, 'index'])->name('uploadorder');
-Route::get('/uploadordermale', [UploadOrderMaleController::class, 'index'])->name('uploadordermale');
-Route::get('/uploadorderfemale', [UploadOrderFemaleController::class, 'index'])->name('uploadorderfemale');
+Route::get('/CustomOrder', [CustomOrderController::class, 'index'])->name('CustomOrder');
+Route::get('/CustomOrderMale', [CustomOrderMaleController::class, 'index'])->name('CustomOrderMale');
+Route::get('/CustomOrderFemale', [CustomOrderFemaleController::class, 'index'])->name('CustomOrderFemale');
 
 // Routes that require authentication
 Route::middleware('auth')->group(function () {
@@ -67,8 +72,11 @@ Route::middleware('auth')->group(function () {
 // Routes that require the 'customer' role
 Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/customersupport', [CustomerSupportController::class, 'index'])->name('customersupport');
-    Route::get('/ViewOrder', [ViewOrderController::class, 'index'])->name('vieworder');
+    Route::get('/ViewOrder', [ViewOrderController::class, 'index'])->name('ViewOrder');
     Route::get('/orderDetails', [orderDetailsController::class, 'index'])->name('orderDetails');
+    Route::post('/uploadorder', 'UploadOrderController@createOrder');
+    Route::post('/uploadorder', 'UploadOrderController@store')->name('uploadorder');
+    Route::post('/uploadorder', [UploadOrderController::class, 'createOrder'])->name('uploadorder');
 });
 
 // Employee routes
@@ -76,9 +84,14 @@ Route::middleware(['auth', 'role:employee'])->group(function () {
     Route::get('/employeedashboard', function () {
         return view('employeeui.empdboard');
     })->name('employee.dashboard');
-    Route::get('/manageorder', [ManageOrderController::class, 'index'])->name('employeeui.manageorder');
+    Route::get('/ManageOrder', [ManageOrderController::class, 'index'])->name('employeeui.ManageOrder');
     Route::get('/assistcustomer', [AssistCustomerController::class, 'index'])->name('employeeui.assistcustomer');
+    Route::get('/MoreDetails', [MoreDetailsController::class, 'index'])->name('employeeui.MoreDetails');
 
+    //Employee routes Update
+    Route::get('/EditOrder', [ManageOrderController::class, 'edit'])->name('ManageOrder.edit');
+    Route::patch('/EditOrder', [ManageOrderController::class, 'update'])->name('ManageOrder.update');
+    Route::delete('/EditOrder', [ManageOrderController::class, 'destroy'])->name('ManageOrder.destroy');
 });
 
 // Admin routes

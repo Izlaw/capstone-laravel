@@ -12,7 +12,7 @@
 
 <body class="bg-mainbackground bg-cover">  
 
-        <div class="vieworderpgeContainer mx-auto bg-brownbgcolor w-3/4 bg-opacity-80  " style="height: calc(100vh - 48px);">
+    <div class="vieworderpgeContainer mx-auto bg-brownbgcolor w-full bg-opacity-80  " style="height: calc(100vh - 48px);">
 
         <div class="GoBackColumn mb-8">
             <div class="GoBackContainer flex items-center">
@@ -23,7 +23,7 @@
         </div>   
 
         <div class= " viewtable flex justify-center" >
-            <table class=" rounded-lg text-center text-black border-spacing-x-16 border-separate ">
+            <table class=" table-auto rounded-b-lg shadow-lg text-center text-black border-spacing-x-16 border-separate ">
     <thead>
         <tr>
             <th class=" border-4 border-white py-2 w-32"> ORDER ID </th> 
@@ -38,7 +38,7 @@
         
     <tbody>
         @foreach($ViewOrder as $orders)
-        <tr class="group hover:bg-white hover:text-black cursor-pointer hover:relative hover:z-10 " onclick="window.location.href='{{ route('orderDetails', $orders->orderID) }}'">
+        <tr class="group cursor-pointer hover:relative hover:z-10 " onclick="window.location.href='{{ route('orderDetails', $orders->orderID) }}'">
             <td class="py-2 w-32"> {{ $orders->orderID }} </a></td>
             <td class="py-2 w-32"> {{ $orders->totalPrice }} </td>
             <td class="py-2 w-32"> {{ $orders->orderStatus }} </td>

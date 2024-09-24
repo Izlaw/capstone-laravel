@@ -11,5 +11,19 @@ class orders extends Model
         $orders = order::all();
         return view('ViewOrder', ['ViewOrders' => $orders]);
     }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    protected $fillable = [
+        'name',
+        'contact',
+        'dateOrder',
+        'TargetDate',
+        'UploadFile',
+        'orderTotal',
+    ];
     
 }
