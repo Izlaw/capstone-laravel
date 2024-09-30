@@ -12,6 +12,7 @@ let previousMousePosition = { x: 0, y: 0 };
 let selectedColor = "#ffffff"; // Default color
 let collarType = "Round"; // Example collar type
 
+let userUpload = "tshirt";
 
 // Customize
 function init() {
@@ -183,7 +184,7 @@ function init() {
 
 function loadModel() {
     const loader = new GLTFLoader();
-    loader.load('/models/tshirt.glb', (gltf) => {
+    loader.load('/models/${userUpload}.glb', (gltf) => {
         tShirt = gltf.scene;
         tShirt.scale.set(5, 5, 5);
         tShirt.position.y = -5.3;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
 use App\Models\CustomOrder; // Import your model
 use Illuminate\Http\Request;

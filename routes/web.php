@@ -6,29 +6,28 @@ use App\Models\User;
 use App\Models\CustomOrder;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-// Essential controllers
+// User controllers
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ChatController;
+use App\Http\Controllers\User\ChatController;
+use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\ProfileController; 
 
-// Customer routes
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AddOrderController;
-use App\Http\Controllers\UploadOrderController;
-use App\Http\Controllers\UploadOrderMaleController;
-use App\Http\Controllers\FAQController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UploadOrderFemaleController;
-use App\Http\Controllers\ViewOrderController;
-use App\Http\Controllers\ViewCollectionsController;
-use App\Http\Controllers\CustomizeTShirtController;
-use App\Http\Controllers\orderDetailsController;
-use App\Http\Controllers\CustomOrderController;
+// Customer controllers
+use App\Http\Controllers\Customer\AddOrderController;
+use App\Http\Controllers\Customer\CustomizeTShirtController;
+use App\Http\Controllers\Customer\CustomOrderController;
+use App\Http\Controllers\Customer\FAQController;
+use App\Http\Controllers\Customer\OrderDetailsController;
+use App\Http\Controllers\Customer\UploadOrderController; 
+use App\Http\Controllers\Customer\UploadOrderFemaleController;
+use App\Http\Controllers\Customer\UploadOrderMaleController;
+use App\Http\Controllers\Customer\ViewCollectionsController;
+use App\Http\Controllers\Customer\ViewOrderController;
 
 // Employee controllers
-use App\Http\Controllers\ManageOrderController;
-use App\Http\Controllers\AssistCustomerController;
+use App\Http\Controllers\Employee\ManageOrderController;
+use App\Http\Controllers\Employee\AssistCustomerController;
 
 // Admin controllers
 

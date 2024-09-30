@@ -23,7 +23,7 @@
 
     <footer class="Footer p-2 bg-maroonbgcolor flex justify-between items-center">
         <!-- Go Back button -->
-        <a href="{{ url()->previous() }}" class="GoBackButton group">
+        <a href="{{ route('uploadorder') }}" class="GoBackButton group">
             <img class="BackButton h-8 w-8 rounded-lg p-1" src="../img/gobackbutton.svg" alt="Go Back">
         </a>
 
