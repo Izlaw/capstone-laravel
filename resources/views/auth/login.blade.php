@@ -7,7 +7,7 @@
     <title>Login Page</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    @include('layouts.customerheader')
+    @include('layouts.header')
 </head> 
 <body class="bg-mainbackground bg-cover overflow-y-hidden">
 </html>
@@ -56,10 +56,15 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+                
 
-                <x-primary-button class="ml-3 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md">
+                <button class="ml-3 text-white px-4 py-2 rounded-md hover:bg-white hover:text-maroonbgcolor transition duration-300 ease-in-out">
                     {{ __('Log in') }}
-                </x-primary-button>
+                <button>
+
+                <button type="button" class="ml-3 text-white px-4 py-2 rounded-md hover:bg-white hover:text-maroonbgcolor transition duration-300 ease-in-out" onclick="window.location.href='{{ route('register') }}'">
+                    Dont't have an account? Sign up!
+                <button>
             </div>
         </form>
     </div>

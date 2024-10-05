@@ -6,7 +6,7 @@
     <title>Assist Customer</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    @include('layouts.empheader')
+    @include('layouts.header')
 </head>
 <body>
     <h1 class="AssistCustomertxt text-center text-2xl">Assist Customer Page</h1>
@@ -43,12 +43,28 @@ document.addEventListener('DOMContentLoaded', function () {
     const conversationList = document.getElementById('conversation-list');
 
     conversationList.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
         const target = event.target.closest('li[data-conversation-id]');
         if (target) {
-            const conversationId = target.getAttribute('data-conversation-id');
-            window.location.href = `/chat/${conversationId}`; // Redirect to the chat page with the recipient's user_id
+            const recipientId = target.getAttribute('data-conversation-id');
+            if (recipientId) {
+                // Construct the URL using the chat.recipient route
+                const chatUrl = `{{ route('chat.recipient', ':recipient') }}`.replace(':recipient', recipientId);
+                window.location.href = chatUrl; // Redirect to the chat page with the recipient's user_id
+            } else {
+                console.error('Recipient ID is undefined.');
+            }
         }
     });
+
+    // Fetch and update messages when loading the chat page
+    const currentUrl = window.location.pathname;
+    const match = currentUrl.match(/\/chat\/(\d+)/);
+    if (match) {
+        const recipientId = match[1];
+        fetchMessages(recipientId);
+    }
 
     window.Echo.private('chat')
         .listen('MessageSent', (event) => {
@@ -57,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const conversationList = document.getElementById('conversation-list');
             const messageContent = event.message;
             const userName = event.user;
+            const userId = event.user_id; // Assuming this is part of the event
 
             console.log(`Message Content: ${messageContent}`);
             console.log(`User Name: ${userName}`);
@@ -78,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Create a new list item for the new message
                 const newConversationItem = document.createElement('li');
                 newConversationItem.classList.add('mb-4');
-                newConversationItem.dataset.conversationId = event.user_id; // Use the user_id from the event
+                newConversationItem.dataset.conversationId = userId; // Use the user_id from the event
                 newConversationItem.innerHTML = `
                     <a href="#" class="block p-4 bg-gray-100 rounded-lg shadow">
                         <p class="font-semibold">${userName}</p>
@@ -110,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 });
+
 
 </script>
 </body>

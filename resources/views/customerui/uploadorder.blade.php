@@ -6,18 +6,29 @@
     <title>Upload Order Page</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    @include('layouts.customerheader')
+    @include('layouts.header')
 
 </head>
 <body class="bg-mainbackground bg-cover overflow-y-hidden">
 
-    <div class= "UploadOrderContainer mx-auto bg-brownbgcolor w-full bg-opacity-80  " style="height: calc(100vh - 48px);">
-         
-    <!--Go Back button-->
-      <div class="GoBackColumn">
-        <div class="GoBackContainer flex items-center">
-          <a href="{{ route('home')}}">
-            <img class="GoBackButtonSvg mx-auto h-10 w-10 ml-4 " src="../img/gobackbutton.svg">
+<!-- Ask for gender -->
+  <div class="QuestionContainer flex justify-center items-center h-screen">
+    <div class="BoxContainer bg-maroonbgcolor w-[400px] h-[300px] p-4 rounded-lg shadow-md bg-opacity-80 backdrop-blur-md text-center">
+
+      <!-- Back button to addorderpage.html -->
+      <a href="{{ route('addorder')}}" class="group">
+        <img class="BackButton h-8 w-8 float-right rounded-lg p-1 cursor-pointer" src="../img/gobackbutton.svg">
+      </a>
+      
+      <!-- Question -->
+      <div class="MoveContentsDown pt-8">
+        <span class="QuestionTxt text-white text-[48px]">Which gender?</span>
+        <div class="flex justify-center mt-10">
+          <a href="{{ route('uploadordermale')}}">
+            <button class="bg-maroonbgcolor hover:bg-white hover:text-maroonbgcolor text-white font-bold py-2 px-4 rounded-lg text-[24px]" data-gender="Male">Male</button>
+          </a>
+          <a href="{{ route('uploadorderfemale')}}">
+            <button class="bg-maroonbgcolor hover:bg-white hover:text-maroonbgcolor text-white font-bold py-2 px-4 rounded-lg ml-20 text-[24px]" data-gender="Female">Female</button>
           </a>
         </div>
       </div>

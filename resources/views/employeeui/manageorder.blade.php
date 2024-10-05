@@ -6,7 +6,7 @@
     <title> Manage Order</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    @include('layouts.empheader')
+    @include('layouts.header')
 </head>
 <body class="bg-mainbackground  bg-cover overflow-y-hidden">
 

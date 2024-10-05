@@ -49,6 +49,7 @@ class MessageSent implements ShouldBroadcast
             'user' => $this->user->name, // Ensure $this->user has a 'name' property
             'message' => $this->message->content, // Ensure $this->message has a 'content' property
             'date' => $this->message->date, // Ensure $this->message has a 'date' property
+            'senderId' => $this->user->user_id,
         ];
     }
 }
